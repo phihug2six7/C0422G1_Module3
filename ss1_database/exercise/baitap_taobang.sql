@@ -1,18 +1,19 @@
-create database student_management;
-use student_management;
-create table student(
-id int primary key auto_increment,
-name_student varchar(45),
-age int,
-country varchar(45)
+DROP DATABASE IF EXISTS student_management;
+CREATE DATABASE student_management;
+USE student_management;
+CREATE TABLE student (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name_student VARCHAR(45),
+    age INT,
+    country VARCHAR(45)
 );
-create table class(
-id int primary key auto_increment,
-name_class varchar(30)
+CREATE TABLE class (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name_class VARCHAR(30)
 );
-create table teacher(
-id int primary key auto_increment,
-name_teacher varchar(45),
-age int,
-country varchar(45)
+CREATE TABLE teacher (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name_teacher VARCHAR(45),
+    age INT,
+    country VARCHAR(45)
 )
