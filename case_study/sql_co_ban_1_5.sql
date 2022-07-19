@@ -42,6 +42,8 @@ WHERE
 GROUP BY ma_khach_hang
 ORDER BY COUNT(kh.ma_khach_hang)
 
+
+
  
 
 
