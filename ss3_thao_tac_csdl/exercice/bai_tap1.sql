@@ -18,13 +18,13 @@ FROM
 WHERE
     Credit BETWEEN 3 AND 5;
 
-set sql_safe_updates=0;
+SET sql_safe_updates=0;
 UPDATE StuDENt 
 SET 
     Classid = 2
 WHERE
     STUDEntName = 'HUNG';
-set sQL_SAFE_updates=1;
+SET sQL_SAFE_updates=1;
 
 SELECT 
     s.StudentName, sub.SubName, m.Mark
@@ -33,7 +33,7 @@ FROM
         JOIN
     MarK M ON s.StudentId = m.StudEntId
         JOIN
-    subjeCT Sub ON sub.SUBID = m.SubId
+    `subject` Sub ON sub.SUBID = m.SubId
 ORDER BY m.MaRk DESC , s.stuDENTname ASC
 
 
