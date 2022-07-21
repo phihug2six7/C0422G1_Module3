@@ -15,12 +15,12 @@ where
         join hop_dong hd on nv.ma_nhan_vien = hd.ma_hop_dong
         
         where
-            year(hd.ngay_lam_hop_dong) in (2019 , 2020, 2021)) as mvn);
+            year(hd.ngay_lam_hop_dong) in (2019 , 2020, 2021)) as mnv);
     
 set sql_safe_updates =1;
 
 -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond,
--- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+-- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 1.000.000 VNĐ.
  
 set sql_safe_updates = 0;
 update khach_hang 
@@ -34,20 +34,22 @@ set
 where
     ma_khach_hang in (select 
             tmp.ma_khach_hang
-        from(select kh.ma_khach_hang));
-
-
-
-
-
-
-
-
-
-
-
-
-
+        from
+            (select 
+                kh.ma_khach_hang,
+                    (ifnull(dv.chi_phi_thue, 0) + ifnull(dvdk.gia, 0) * ifnull(hdct.so_luong, 0)) as tong_tien
+            from
+                khach_hang kh
+            left join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
+            left join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
+            left join dich_vu_di_kem dvdk on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+            left join dich_vu dv on hd.ma_dich_vu = dv.ma_dich_vu
+            left join loai_khach lk on kh.ma_loai_khach = lk.ma_loai_khach
+            where
+                year(hd.ngay_lam_hop_dong) = 2021
+                    and lk.ten_loai_khach = 'Platinium'
+            having tong_tien > 1000000) as tmp);
+    
 -- 18.Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
 set sql_safe_updates=0;
 set foreign_key_checks=0;
