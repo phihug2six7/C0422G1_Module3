@@ -1,40 +1,42 @@
-.header{
-    background-color: #7abaff;
-    border: solid;
-    height: 20px;
-    padding: 50px;
-    text-align: center;
+.head2{
+    background-color: lightgrey;
+    height: 50px;
 }
-.body{
-    background-color: aqua;
-    border: solid;
+.head-link{
+    background-color: darkgray;
     height: 20px;
     text-align: center;
+    color: black;
+}
+.spin  {
+    text-decoration: none;
 }
 .row{
     display: flex;
     flex-wrap: wrap;
 }
-#section{
-    background-color: aqua;
+a{
+    text-decoration: none;
+}
+.footer{
+    background-color: lightgrey;
+    text-align: center;
     height: 100px;
-    text-align: center;
+    line-height: 100px;
 }
-#article{
-    background-color: aquamarine;
-    height: 100px;
-    text-align: center;
-}
-#aside{
-    background-color: coral;
-    text-align: center;
-}
-#footer{
-    background: black;
-    color: gray;
-    height: 100px;
-    text-align: center;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (min-width:1241px){
     .col-l-1 {width: 8.33333%;}
