@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: hung
-  Date: 7/27/2022
-  Time: 9:01 PM
+  Date: 7/28/2022
+  Time: 1:07 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,6 +17,5 @@
 <p>DiscountPercent:${DiscountPercent}</p>
 <p>Discount Amount:${DiscountAmount}</p>
 <p>DiscountPrice:${DiscountPrice}</p>
-
 </body>
 </html>

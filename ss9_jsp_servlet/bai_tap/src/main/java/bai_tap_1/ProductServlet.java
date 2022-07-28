@@ -14,19 +14,19 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String ProductDescription = request.getParameter("ProductDescription");
-        double ListPrice = Double.parseDouble(request.getParameter("ListPrice"));
-        double DiscountPercent = Double.parseDouble(request.getParameter("DiscountPercent"));
+        String productDescription = request.getParameter("ProductDescription");
+        double listPrice = Double.parseDouble(request.getParameter("ListPrice"));
+        double discountPercent = Double.parseDouble(request.getParameter("DiscountPercent"));
 
-        double DiscountAmount = ListPrice * DiscountPercent * 0.01;
-        double DiscountPrice = ListPrice - DiscountAmount;
+        double discountAmount = listPrice * discountPercent * 0.01;
+        double discountPrice = listPrice - discountAmount;
 
-        RequestDispatcher requestDispatcher =request.getRequestDispatcher("hana.jsp");
-        request.setAttribute("ProductDescription",ProductDescription);
-        request.setAttribute("ListPrice",ListPrice);
-        request.setAttribute("DiscountPercent",DiscountPercent);
-        request.setAttribute("DiscountAmount",DiscountAmount);
-        request.setAttribute("DiscountPrice",DiscountPrice);
+        RequestDispatcher requestDispatcher =request.getRequestDispatcher("product.jsp");
+        request.setAttribute("ProductDescription",productDescription);
+        request.setAttribute("ListPrice",listPrice);
+        request.setAttribute("DiscountPercent",discountPercent);
+        request.setAttribute("DiscountAmount",discountAmount);
+        request.setAttribute("DiscountPrice",discountPrice);
 
 
         requestDispatcher.forward(request,response);
