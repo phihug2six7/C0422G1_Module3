@@ -12,10 +12,10 @@
 </head>
 <body>
 <h1>Ứng dụng Product Discount Calculator</h1>
-<p>Product Description:${ProductDescription}</p>
-<p>List Price:${ListPrice}</p>
-<p>DiscountPercent:${DiscountPercent}</p>
-<p>Discount Amount:${DiscountAmount}</p>
-<p>DiscountPrice:${DiscountPrice}</p>
+<p>Product Description:${productDescription}</p>
+<p>List Price:${listPrice}</p>
+<p>DiscountPercent:${discountPercent}</p>
+<p>Discount Amount:${discountAmount}</p>
+<p>DiscountPrice:${discountPrice}</p>
 </body>
 </html>

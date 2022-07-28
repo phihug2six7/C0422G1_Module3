@@ -14,19 +14,19 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productDescription = request.getParameter("ProductDescription");
-        double listPrice = Double.parseDouble(request.getParameter("ListPrice"));
-        double discountPercent = Double.parseDouble(request.getParameter("DiscountPercent"));
+        String productDescription = request.getParameter("productDescription");
+        double listPrice = Double.parseDouble(request.getParameter("listPrice"));
+        double discountPercent = Double.parseDouble(request.getParameter("discountPercent"));
 
         double discountAmount = listPrice * discountPercent * 0.01;
         double discountPrice = listPrice - discountAmount;
 
         RequestDispatcher requestDispatcher =request.getRequestDispatcher("product.jsp");
-        request.setAttribute("ProductDescription",productDescription);
-        request.setAttribute("ListPrice",listPrice);
-        request.setAttribute("DiscountPercent",discountPercent);
-        request.setAttribute("DiscountAmount",discountAmount);
-        request.setAttribute("DiscountPrice",discountPrice);
+        request.setAttribute("productDescription",productDescription);
+        request.setAttribute("listPrice",listPrice);
+        request.setAttribute("discountPercent",discountPercent);
+        request.setAttribute("discountAmount",discountAmount);
+        request.setAttribute("discountPrice",discountPrice);
 
 
         requestDispatcher.forward(request,response);

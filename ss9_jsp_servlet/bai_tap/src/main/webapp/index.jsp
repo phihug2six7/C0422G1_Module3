@@ -26,9 +26,9 @@
   <form action="/ProductServlet" method="post">
     <h1>Product Discount Calculator</h1>
     <div class="coconut">
-      <input type="text" name="ProductDescription" size="30" placeholder="Product Description" >
-    <input type="text" name="ListPrice" size="30" placeholder="List Price" >
-    <input type="text" name="DiscountPercent" size="30" placeholder="Discount Percent" >
+      <input type="text" name="productDescription" size="30" placeholder="Product Description" >
+    <input type="text" name="listPrice" size="30" placeholder="List Price" >
+    <input type="text" name="discountPercent" size="30" placeholder="Discount Percent" >
       <input type="submit" value="Calculate Discount">  </div>
   </form>
   </body>
