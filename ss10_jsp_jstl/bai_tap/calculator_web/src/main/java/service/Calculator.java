@@ -1,4 +1,4 @@
-package model;
+package service;
 
 public class Calculator {
     public static float calculator(float firstOperand, float secondOperand, String operator) {
