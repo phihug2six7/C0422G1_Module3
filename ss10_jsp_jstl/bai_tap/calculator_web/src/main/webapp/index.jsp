@@ -10,7 +10,7 @@
 <head>
   <title>$Title$</title>
 </head>
-<body>
+<body style="background-color: lightpink">
 <h1 style="background-color: lightpink">Calculator</h1>
 <form action="/CalculatorServlet" method="post" style="background-color: lightpink">
   <table>
@@ -58,7 +58,7 @@
     </tr>
   </table>
 </form>
-<p>
+<p style="background-color: lightpink">
   Result: ${result}
 </p>
 </body>
