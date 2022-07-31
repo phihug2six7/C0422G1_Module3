@@ -32,9 +32,6 @@ public class ProductServlet extends HttpServlet {
             case "remove":
                 showRemove(request,response);
                 break;
-            case "search":
-                searchProduct(request,response);
-                break;
             default:
                 showProduct(request,response);
         }
@@ -42,6 +39,17 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
+        String search =request.getParameter("search");
+        List<Product> productList=iProductService.findByName(search);
+        request.setAttribute("productList",productList);
+        RequestDispatcher requestDispatcher =request.getRequestDispatcher("view/list.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -63,7 +71,7 @@ public class ProductServlet extends HttpServlet {
                 removeProduct(request,response);
                 break;
             case "search":
-
+                searchProduct(request,response);
                 break;
         }
     }
@@ -159,7 +167,4 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-
-
 }

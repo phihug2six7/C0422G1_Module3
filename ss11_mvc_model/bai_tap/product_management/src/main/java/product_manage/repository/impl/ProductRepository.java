@@ -5,6 +5,7 @@ import product_manage.repository.IProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class ProductRepository implements IProductRepository {
     private static List<Product> productList =new ArrayList<>();
@@ -33,13 +34,13 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> findByName(String name) {
-        List<Product> productList1 =new ArrayList<>();
-        for (Product product:productList1 ) {
-            if (product.getName().contains(name)){
-                productList1.add(product);
+        List<Product> products =new ArrayList<>();
+        for (int i = 0; i <productList.size() ; i++) {
+            if (productList.get(i).getName().toLowerCase(Locale.ROOT).contains(name.toLowerCase(Locale.ROOT))){
+                products.add(productList.get(i));
             }
         }
-        return productList1;
+        return products;
     }
 
     @Override

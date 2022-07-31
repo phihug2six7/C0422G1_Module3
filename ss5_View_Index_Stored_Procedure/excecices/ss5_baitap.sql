@@ -19,21 +19,34 @@ INSERT INTO product(`productCODE`, `PRODuctName`, `productPricE`, `productAmoUnt
 INSERT INTO product (`producTCoDE`, `pRODUctName`, `productPrice`, `productAmounT`, `productDescRiption`, `producTStatus`)
  VALUES ('112', 'huynh_quoc_tRunG', '110', '2', 'mắt_thâm', 'độc_Thân');
 INSERT INTO product (`productCode`, `pRODUCTNAME`, `producTPrice`, `prodUctAmount`, `prOductDescription`, `productStatus`)
- VALUES ('113', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ');
- 
+ VALUES ('113', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('114', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('115', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('116', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('117', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('118', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('119', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('120', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('121', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ'),
+ ('122', 'trAn_xuan_quynh', '120', '1', 'răng_sún', 'đã_có_vợ');
  -- Bước 3:
  -- +Tạo UnIque Index trên bẢng Products (sử dụng cột productCode để tạo chỉ mục)
  CREATE UNIQUE INDEX product_code
  ON product(productCode);
+ 
+ drop index product_code on product;
+ 
  
  -- +TạO COMPoSITE InDEX Trên bảng ProducTS (sử dụnG 2 cột prodUctName và productPrice)
 Create Index product_name_price
 On product (productName,productPrice);
 
 -- +Sử dỤNG CÂu LỆNH EXPLAIN để biết đượC câu lệnh SQL của bạn Thực thi như Nào
-Explain Select *
+Explain Select productcode
 From product
 Where productCode = 112;
+
+
 
 -- +So sánh câu truy vấn trước và sau khi tạo index
 -- TRƯớC KHI dÙnG TẠo index rOW=3,và sau khi tạO THÌ row=1

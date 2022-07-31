@@ -1,7 +1,7 @@
 package service;
 
 public class Calculator {
-    public static float calculator(float firstOperand, float secondOperand, String operator) {
+    public static float calculatorName(float firstOperand, float secondOperand, String operator) {
         switch (operator) {
             case "+":
                 return firstOperand + secondOperand;

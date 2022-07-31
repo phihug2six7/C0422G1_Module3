@@ -21,7 +21,7 @@ public class CalculatorServlet extends HttpServlet {
         String operator =request.getParameter("operator");
         String result="";
         try {
-            result= String.valueOf(Calculator.calculator(firstOperand,secondOperand,operator));
+            result= String.valueOf(Calculator.calculatorName(firstOperand,secondOperand,operator));
         }catch (ArithmeticException e){
            result =e.getMessage();
         }

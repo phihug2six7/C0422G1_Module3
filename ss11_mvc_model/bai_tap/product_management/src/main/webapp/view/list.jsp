@@ -19,7 +19,10 @@
 <a href="/Product?action=add">
     Thêm mới sản phẩm
 </a>
-
+<form action="/Product?action=search" method="post">
+    <input type="text" name="search">
+    <button type="submit">Tìm Kiếm</button>
+</form>
 <table border="1">
     <tr>
         <th>Số thứ tự</th>
