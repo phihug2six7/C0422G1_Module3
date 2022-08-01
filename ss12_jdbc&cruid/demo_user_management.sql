@@ -1,0 +1,1 @@
+SELECT * FROM demo2.users;
