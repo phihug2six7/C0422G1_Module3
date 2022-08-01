@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "UserServlet", value = "/users")
+@WebServlet(name = "UserServlet", urlPatterns ={ "","/users"})
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private IUserService iUserService= new  UserService();
@@ -40,13 +40,29 @@ public class UserServlet extends HttpServlet {
                 listUser(request,response);
                 break;
         }
-
+    }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String action=request.getParameter("action");
+        if(action==null){
+            action="";
+            switch (action){
+                case "create":
+                    insertUser(request,response);
+                    break;
+                case "edit":
+                    updateUser(request,response);
+                    break;
+            }
+        }
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) {
         List<User> listUser=iUserService.selectAllUsers();
         request.setAttribute("listUser",listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -93,7 +109,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -103,23 +119,7 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html; charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String action=request.getParameter("action");
-        if(action==null){
-            action="";
-            switch (action){
-                case "create":
-                    insertUser(request,response);
-                    break;
-                case "edit":
-                    updateUser(request,response);
-                    break;
-            }
-        }
-    }
+
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -153,7 +153,7 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/create.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
