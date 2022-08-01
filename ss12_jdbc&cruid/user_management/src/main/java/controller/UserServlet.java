@@ -82,7 +82,7 @@ public class UserServlet extends HttpServlet {
 
         List<User> listUser = iUserService.selectAllUsers();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -96,7 +96,7 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User existingUser = iUserService.selectUser(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/edit.jsp");
         request.setAttribute("user", existingUser);
         try {
             dispatcher.forward(request, response);
@@ -133,7 +133,7 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/edit.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

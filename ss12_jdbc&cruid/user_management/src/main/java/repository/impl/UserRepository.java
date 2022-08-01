@@ -24,7 +24,7 @@ public class UserRepository implements IUserRepository {
         PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);
         preparedStatement.setString(1,user.getName());
         preparedStatement.setString(2,user.getEmail());
-        preparedStatement.setString(1,user.getCountry());
+        preparedStatement.setString(3,user.getCountry());
         System.out.println(preparedStatement);
         preparedStatement.executeUpdate();
     }
