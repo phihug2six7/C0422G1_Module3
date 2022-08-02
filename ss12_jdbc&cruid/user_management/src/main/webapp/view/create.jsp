@@ -16,7 +16,7 @@
 <center>
     <h1>User Management</h1>
     <h2>
-        <a href="users?action=users">List All Users</a>
+        <a href="/users">List All Users</a>
     </h2>
 </center>
 <div align="center">
@@ -43,7 +43,7 @@
                     <input type="text" name="country" id="country" size="15"/>
                 </td>
             </tr>
-            <tr>
+            < tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Save"/>
                 </td>

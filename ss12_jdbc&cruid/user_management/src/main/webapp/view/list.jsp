@@ -18,6 +18,11 @@
     <h2>
         <a href="/users?action=create">Add New User</a>
     </h2>
+    <form action="/users?action=search" method="post">
+        <input type="text" name="search">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+    <a href="/users?action=sort">Sắp xếp theo tên</a>
 </center>
 <div align="center">
     <table border="1" cellpadding="5">

@@ -13,22 +13,26 @@ import java.util.List;
 
 public class UserRepository implements IUserRepository {
     private static final String INSERT_USERS_SQL = "INSERT INTO users (name, email, country) VALUES (?, ?, ?);";
-    private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?";
-    private static final String SELECT_ALL_USERS = "select * from users";
+    private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?;";
+    private static final String SELECT_ALL_USERS = "select * from users;";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String SEARCH_COUNTRY_SQL="select id,name,email,country from users where country like ?;";
+    private static final String SORT_NAME_SQL="SELECT * FROM users order by name";
     @Override
-    public void insertUser(User user) throws SQLException {
-        System.out.println(INSERT_USERS_SQL);
+    public void insertUser(User user)  {
         Connection connection= BaseRepository.getConnectDB();
-        PreparedStatement preparedStatement=connection.prepareStatement(INSERT_USERS_SQL);
-        preparedStatement.setString(1,user.getName());
-        preparedStatement.setString(2,user.getEmail());
-        preparedStatement.setString(3,user.getCountry());
-        System.out.println(preparedStatement);
-        preparedStatement.executeUpdate();
-    }
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getEmail());
+            preparedStatement.setString(3, user.getCountry());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
+    }
     @Override
     public User selectUser(int id) {
         User user=null;
@@ -48,6 +52,48 @@ public class UserRepository implements IUserRepository {
             e.printStackTrace();
         }
         return user;
+    }
+    @Override
+    public List<User> searchUser(String country) {
+        List<User> users=new ArrayList<>();
+        Connection connection=BaseRepository.getConnectDB();
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(SEARCH_COUNTRY_SQL);
+            preparedStatement.setString(1, "%"+country+"%");
+            System.out.println(preparedStatement);
+            ResultSet rs=preparedStatement.executeQuery();
+            while (rs.next()){
+                int id =rs.getInt("id");
+                String name =rs.getString("name");
+                String email=rs.getString("email");
+                country = rs.getString("country");
+                users.add(new User(id,name,email,country));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
+    }
+
+    @Override
+    public List<User> sortUser() {
+        List<User> users=new ArrayList<>();
+        Connection connection= BaseRepository.getConnectDB();
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(SORT_NAME_SQL);
+            System.out.println(preparedStatement);
+            ResultSet rs=preparedStatement.executeQuery();
+            while (rs.next()){
+                int id=rs.getInt("id");
+                String name =rs.getString("name");
+                String email =rs.getString("email");
+                String country =rs.getString("country");
+                users.add(new User(id,name,email,country));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 
     @Override
@@ -93,6 +139,8 @@ public class UserRepository implements IUserRepository {
         rowUpdated=preparedStatement.executeUpdate()>0;
         return rowUpdated;
     }
+
+
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {

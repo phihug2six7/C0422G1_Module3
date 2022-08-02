@@ -10,7 +10,7 @@ import java.util.List;
 public class UserService implements IUserService {
     IUserRepository iUserRepository=new UserRepository();
     @Override
-    public void insertUser(User user) throws SQLException {
+    public void insertUser(User user){
         iUserRepository.insertUser(user);
     }
 
@@ -32,5 +32,15 @@ public class UserService implements IUserService {
     @Override
     public boolean updateUser(User user) throws SQLException {
         return iUserRepository.updateUser(user);
+    }
+
+    @Override
+    public List<User> searchUser(String country) {
+        return iUserRepository.searchUser(country);
+    }
+
+    @Override
+    public List<User> sortUser() {
+        return iUserRepository.sortUser();
     }
 }
