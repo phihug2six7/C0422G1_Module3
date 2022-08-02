@@ -1,6 +1,6 @@
 package servlet;
 
-import service.Calculator;
+import service.CalculatorService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,7 +21,7 @@ public class CalculatorServlet extends HttpServlet {
         String operator =request.getParameter("operator");
         String result="";
         try {
-            result= String.valueOf(Calculator.calculatorName(firstOperand,secondOperand,operator));
+            result= String.valueOf(CalculatorService.calculatorName(firstOperand,secondOperand,operator));
         }catch (ArithmeticException e){
            result =e.getMessage();
         }

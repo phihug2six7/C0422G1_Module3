@@ -1,6 +1,6 @@
 package service;
 
-public class Calculator {
+public class CalculatorService {
     public static float calculatorName(float firstOperand, float secondOperand, String operator) {
         switch (operator) {
             case "+":
