@@ -30,26 +30,12 @@ public class ProductServlet extends HttpServlet {
                 showUpdate(request,response);
                 break;
             case "remove":
-                showRemove(request,response);
+                removeProduct(request,response);
                 break;
             default:
                 showProduct(request,response);
         }
 
-    }
-
-    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
-        String search =request.getParameter("search");
-        List<Product> productList=iProductService.findByName(search);
-        request.setAttribute("productList",productList);
-        RequestDispatcher requestDispatcher =request.getRequestDispatcher("view/list.jsp");
-        try {
-            requestDispatcher.forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -67,19 +53,33 @@ public class ProductServlet extends HttpServlet {
             case "update":
                 updateProduct(request,response);
                 break;
-            case "remove":
-                removeProduct(request,response);
-                break;
             case "search":
                 searchProduct(request,response);
                 break;
+        }
+    }
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
+        String search =request.getParameter("search");
+        List<Product> productList=iProductService.findByName(search);
+        request.setAttribute("productList",productList);
+        RequestDispatcher requestDispatcher =request.getRequestDispatcher("view/list.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     private void removeProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         iProductService.remove(id);
-        showProduct(request,response);
+        try {
+            response.sendRedirect("/Product");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
@@ -123,23 +123,6 @@ public class ProductServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    
-
-    private void showRemove(HttpServletRequest request, HttpServletResponse response)  {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = iProductService.findById(id);
-        request.setAttribute("product",product);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/remove.jsp");
-        try {
-            requestDispatcher.forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 
     private void showUpdate(HttpServletRequest request, HttpServletResponse response) {

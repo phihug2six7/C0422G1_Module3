@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: lightpink;text-align: center">
 <h1>Thêm mới sản phẩm</h1>
 <p>
     <a href="/Product">
@@ -18,13 +18,13 @@
     </a>
 </p>
 <form action="/Product?action=add" method="post">
-    <table>
+    <table style="text-align: center" align="center">
     <tr>
         <td>
             Id
         </td>
         <td>
-            <input type="text" name="id" placeholder="Nhập Id">
+            <input required type="text" name="id" placeholder="Nhập Id">
         </td>
     </tr>
         <tr>
@@ -32,7 +32,7 @@
                 Tên Sản Phẩm
             </td>
             <td>
-                <input type="text" name="name" placeholder="Nhập tên">
+                <input required type="text" name="name" placeholder="Nhập tên">
             </td>
         </tr>
         <tr>
@@ -40,7 +40,7 @@
                 Giá Sản Phẩm
             </td>
             <td>
-                <input type="text" name="price" placeholder="Nhập giá ">
+                <input required type="text" name="price" placeholder="Nhập giá ">
             </td>
         </tr>
         <tr>
@@ -48,7 +48,7 @@
                 Mô Tả Sản Phẩm
             </td>
             <td>
-                <input type="text" name="describe" placeholder="Nhập mô tả">
+                <input required type="text" name="describe" placeholder="Nhập mô tả">
             </td>
         </tr>
         <tr>
@@ -56,7 +56,7 @@
                 Nhà Sản Xuất
             </td>
             <td>
-                <input type="text" name="producer" placeholder="Nhập nhà sản xuất">
+                <input required type="text" name="producer" placeholder="Nhập nhà sản xuất">
             </td>
         </tr>
         <tr>

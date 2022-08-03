@@ -10,7 +10,7 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: lightpink;text-align: center">
 <h1>Chỉnh sửa sản phẩm</h1>
 <p>
     <a href="/Product">
@@ -18,7 +18,7 @@
     </a>
 </p>
 <form  method="post">
-    <table>
+    <table align="center" style="text-align: center">
         <tr>
             <td>
                 Id

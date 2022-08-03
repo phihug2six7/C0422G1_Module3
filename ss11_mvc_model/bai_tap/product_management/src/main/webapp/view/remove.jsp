@@ -10,9 +10,9 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="background-color: lightpink;text-align: center">
 <form method="post">
-    <table border="1px">
+    <table border="1px" style="text-align: center;" align="center">
         <tr>
             <td>
                 Id
