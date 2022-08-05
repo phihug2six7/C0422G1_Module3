@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Facility List</h1>
-<form action="" >
+<form action="">
     <table class="table">
         <thead>
         <tr>
@@ -47,7 +47,9 @@
             <td>@mdo</td>
             <td>@mdo</td>
             <td>@mdo</td>
-            <td><button type="submit">Edit</button></td>
+            <td>
+                <button type="submit">Edit</button>
+            </td>
             <td><!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Delete

@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 </head>
 <body>
-<div class="row">
-    <div class="col-md-2">
-        <img src="image/Logo-FURAMA-RESORT.jpg" alt="" height="100">
+<div class="row " style="background-color: greenyellow">
+    <div class="col-md-2" >
+        <img style="background-color: greenyellow" src="image/lo_go.webp" alt="" height="100">
     </div>
     <div class="col-md-8">
-        <h1 style="color: deepskyblue; text-align: center">Welcome To Furama Resort</h1>
+        <h1 style="color: black; text-align: center">Welcome To Furama Resort</h1>
     </div>
     <div class="col-md-2" style="text-align: center">
         <p>
@@ -28,7 +28,7 @@
         </p>
     </div>
 </div>
-<div class="col-lg-12 bg-info" style="text-align: center">
+<div class="col-lg-12 bg-success" style="text-align: center">
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Home</a>
@@ -82,8 +82,107 @@
     <img src="image/Furama-Đà-Nẵng-Resort.jpg "width="100%">
     </div>
 </div>
-<div class="col-md-12" style="background-color: palevioletred;text-align: center">
-    Footer...
+<div class="col-md-12" >
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+    <div class="container my-5">
+
+        <footer class="bg-dark text-center text-lg-start text-white">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row mt-4">
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">See other books</h5>
+
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i>Bestsellers</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i>All books</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-user-edit fa-fw fa-sm me-2"></i>Our authors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Execution of the contract</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Supply</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-backspace fa-fw fa-sm me-2"></i>Returns</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>Regulations</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>Privacy policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Publishing house</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-white">The BookStore</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">123 Street</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white">05765 NY</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>Send us a book</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Write to us</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-at fa-fw fa-sm me-2"></i>Help in purchasing</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Check the order status</a>
+                            </li>
+                            <li>
+                                <a href="#!" class="text-white"><i class="fas fa-envelope fa-fw fa-sm me-2"></i>Join the newsletter</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2022 Copyright:
+                <a class="text-white" href="https://www.facebook.com/">Nguyễn Phi Hùng</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+    </div>
+    <!-- End of .container -->
 </div>
 </body>
 <script src="resources/js/bootstrap.min.js"></script>
