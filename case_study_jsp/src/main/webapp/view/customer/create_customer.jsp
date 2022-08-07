@@ -16,45 +16,49 @@
 <div class="d-flex justify-content-md-center">
     <a href="" class="text-center">Back to customer list</a>
 </div>
-<form>
+<form action="/CustomerServlet?action=create" method="post">
     <div class="container d-flex  justify-content-md-center">
         <div class="row">
             <div class="col-md-12 ">
                 <div class="row">
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" name="">
+                        <input type="text" class="form-control" id="name" name="nameCustomer">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Birthday</label>
-                        <input type="text" class="form-control" name="">
+                        <input type="text" class="form-control" id="birthday" name="birthday">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Gender</label>
-                        <input type="text" class="form-control" name="">
+<%--                        <input type="text" class="form-control" id="gender" name="gender">--%>
+                        <select name="gender" id="gender" >
+                            <option value="0">Nữ</option>
+                            <option value="1">Nam</option>
+                        </select>
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Id Card</label>
-                        <input type="number" class="form-control" name="">
+                        <input type="text" class="form-control" id="idCard" name="idCard">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Phone</label>
-                        <input type="number" class="form-control" name="">
+                        <input type="number" class="form-control" id="phone" name="phone">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check" >
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" name="">
+                        <input type="email" class="form-control" id="email" name="email">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check" >
                         <label class="form-label">Customer Type Id</label>
 <%--                        <input type="number" class="form-control" name="facilityId">--%>
-                        <select>
+                        <select name="customerTypeId" id="customerTypeId">
                             <option selected>Customer Type</option>
                             <option value="1">Diamond</option>
                             <option value="2">Platinium</option>
@@ -66,7 +70,7 @@
 
                     <div class="col-md-6 mb-3 form-check" >
                         <label class="form-label">Address</label>
-                        <input type="text" class="form-control" name="">
+                        <input type="text" class="form-control" id="address" name="address">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

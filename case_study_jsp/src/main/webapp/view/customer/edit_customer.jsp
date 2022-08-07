@@ -16,7 +16,7 @@
 <div class="d-flex justify-content-md-center">
     <a href="" class="text-center">Back to customer list</a>
 </div>
-<form>
+<form action="/CustomerServlet?action=edit" method="post">
     <div class="container d-flex  justify-content-md-center">
         <div class="row">
             <div class="col-md-12 ">

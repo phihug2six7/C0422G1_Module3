@@ -83,6 +83,7 @@
                             <div class="row">
                                 <div class="col-md-12 ">
                                     <div class="row">
+
                                         <div class="col-md-6 mb-3 form-check">
                                             <label class="form-label">Name</label>
                                             <input type="text" class="form-control" name="">
