@@ -4,6 +4,6 @@ import model.customer.CustomerType;
 
 import java.util.List;
 
-public interface ICustomerType {
+public interface ICustomerTypeRepository {
     List<CustomerType> findAllCustomerType();
 }
