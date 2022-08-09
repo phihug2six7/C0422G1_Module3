@@ -13,11 +13,14 @@ import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
     private static final String DISPLAY_ALL_CUSTOMER="select * from khach_hang where `status` = 1 ;";
-    private static final String CREATE_CUSTOMER="INSERT INTO khach_hang (ma_loai_khach, ho_ten, ngay_sinh,gioi_tinh,so_cmnd,so_dien_thoai,email,dia_chi) VALUES (?, ?, ?,?,?,?,?,?);";
+    private static final String CREATE_CUSTOMER="INSERT INTO khach_hang (ma_loai_khach, ho_ten, ngay_sinh,gioi_tinh," +
+            "so_cmnd,so_dien_thoai,email,dia_chi) VALUES (?, ?, ?,?,?,?,?,?);";
     private static final String FIND_BY_CUSTOMER_ID="select*from khach_hang where ma_khach_hang=?";
-    private static final String UPDATE_CUSTOMER="update khach_hang set ma_loai_khach=?,ho_ten=?,ngay_sinh=?,gioi_tinh=?,so_cmnd=?,so_dien_thoai=?,email=?,dia_chi=? where ma_khach_hang=?;";
+    private static final String UPDATE_CUSTOMER="update khach_hang set ma_loai_khach=?,ho_ten=?,ngay_sinh=?,gioi_tinh=?," +
+            "so_cmnd=?,so_dien_thoai=?,email=?,dia_chi=? where ma_khach_hang=?;";
     private static final String DELETE_CUSTOMER="delete from khach_hang where ma_khach_hang=?;";
     private static final String REMOVE_CUSTOMER_STATUS="update khach_hang set `status`= 0 where ma_khach_hang = ?;";
+    private static final String DISPLAY_CUSTOMER="select * from khach_hang  ;";
     @Override
     public List<Customer> DisplayAllCustomer() {
         Connection connection= BaseRepository.getConnection();
@@ -117,6 +120,34 @@ public class CustomerRepository implements ICustomerRepository {
         preparedStatement.setInt(1, id);
         rowRemove = preparedStatement.executeUpdate() > 0;
         return rowRemove;
+    }
+
+    @Override
+    public List<Customer> displayCustomer() {
+        Connection connection= BaseRepository.getConnection();
+        List<Customer> customerList =new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(DISPLAY_CUSTOMER);
+            ResultSet rs= preparedStatement.executeQuery();
+            Customer customer=null;
+            while (rs.next()){
+                int customerId=rs.getInt("ma_khach_hang");
+                int customerTypeId=rs.getInt("ma_loai_khach");
+                String customerName=rs.getString("ho_ten");
+                String customerDateOfBirth=rs.getString("ngay_sinh");
+                int customerGender=rs.getInt("gioi_tinh");
+                String customerIdCard=rs.getString("so_cmnd");
+                String customerPhone=rs.getString("so_dien_thoai");
+                String customerEmail=rs.getString("email");
+                String customerAddress=rs.getString("dia_chi");
+                customer=new Customer(customerId,customerTypeId,customerName,customerDateOfBirth,customerGender,
+                        customerIdCard,customerPhone,customerEmail,customerAddress);
+                customerList.add(customer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerList;
     }
 
     private void printSQLException(SQLException ex) {

@@ -51,7 +51,7 @@
                             Service
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">ListService</a></li>
+                            <li><a class="dropdown-item" href="/FacilityServlet">ListService</a></li>
                             <li><a class="dropdown-item" href="#">AddService</a></li>
 <%--                            <li>--%>
 <%--                                <hr class="dropdown-divider">--%>

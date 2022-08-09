@@ -4,6 +4,7 @@ import model.customer.Customer;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface ICustomerService {
     List<Customer> DisplayAllCustomer();
@@ -11,4 +12,6 @@ public interface ICustomerService {
     void addCustomer(Customer customer);
     boolean updateCustomer(Customer customer) throws SQLException;
     boolean removeCustomer(int id) throws SQLException;
+    List<Customer> displayCustomer();
+    Map<String ,String> CheckCustomer(Customer customer);
 }

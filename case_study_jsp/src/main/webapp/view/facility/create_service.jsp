@@ -16,84 +16,87 @@
 <div class="d-flex justify-content-md-center">
     <a href="" class="text-center">Back to facility list</a>
 </div>
-
-<form>
+<form action="/FacilityServlet?action=create" method="post">
     <div class="container d-flex  justify-content-md-center">
         <div class="row">
             <div class="col-md-12 ">
                 <div class="row">
-                    <div class="col-md-6 mb-3 form-check">
-                        <label class="form-label">Facility Id</label>
-                        <input type="number" class="form-control" name="facilityId">
-                    </div>
-                    <div class="col-md-6 mb-3 form-check">
-                        <div>
-                            <label>Facility Type</label>
-                            <select onchange="show(this.value)">
-                                <option value="None" selected>Facility Type</option>
-                                <option value="Villa">Villa</option>
-                                <option value="House">House</option>
-                                <option value="Room">Room</option>
-                            </select>
-                        </div>
-                    </div>
+
+<%--                    <div class="col-md-6 mb-3 form-check">--%>
+<%--                        <label class="form-label">Facility Id</label>--%>
+<%--                        <input type="number" class="form-control" name="facilityId">--%>
+<%--                    </div>--%>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Facility Name</label>
-                        <input type="text" class="form-control" name="facilityId">
+                        <input type="text" class="form-control" name="name">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Area</label>
-                        <input type="number" class="form-control" name="facilityId">
+                        <input type="number" class="form-control" name="area">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Cost</label>
-                        <input type="number" class="form-control" name="facilityId">
+                        <input type="number" class="form-control" name="cost">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Max People</label>
-                        <input type="number" class="form-control" name="facilityId">
-                    </div>
-
-                    <div class="col-md-6 mb-3 form-check" id="1" style="display: none">
-                        <label class="form-label">Standard Room</label>
-                        <input type="text" class="form-control" name="facilityId">
-                    </div>
-
-                    <div class="col-md-6 mb-3 form-check" id="2" style="display: none">
-                        <label class="form-label">Description other convenience</label>
-                        <input type="number" class="form-control" name="facilityId">
-                    </div>
-
-                    <div class="col-md-6 mb-3 form-check" id="3" style="display: none">
-                        <label class="form-label">Pool Area</label>
-                        <input type="number" class="form-control" name="facilityId">
-                    </div>
-
-                    <div class="col-md-6 mb-3 form-check" id="4" style="display: none">
-                        <label class="form-label">Number Of Floors</label>
-                        <input type="number" class="form-control" name="facilityId">
-                    </div>
-
-                    <div class="col-md-6 mb-3 form-check" id="5" style="display: none">
-                        <label class="form-label">Facility Free</label>
-                        <input type="text" class="form-control" name="facilityId">
+                        <input type="number" class="form-control" name="maxPeople">
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label>Rent Type</label>
-                        <select>
-                            <option selected>Facility Type</option>
+                        <select name="rentType" class="form-control">
+                            <option selected>Rent Type</option>
                             <option value="1">Year</option>
                             <option value="2">Month</option>
                             <option value="3">Day</option>
                             <option value="4">Hours</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <div class="col-md-6 mb-3 form-check">
+                        <div>
+                            <label>Facility Type</label>
+                            <select onchange="show(this.value)" name="facilityType" class="form-control">
+                                <option value="None" selected>Facility Type</option>
+                                <option value="1">Villa</option>
+                                <option value="2">House</option>
+                                <option value="3">Room</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 mb-3 form-check" id="1" style="display: none">
+                        <label class="form-label">Standard Room</label>
+                        <input type="text" class="form-control" name="standardRoom">
+                    </div>
+
+                    <div class="col-md-6 mb-3 form-check" id="2" style="display: none">
+                        <label class="form-label">Description other convenience</label>
+                        <input type="number" class="form-control" name="description">
+                    </div>
+
+                    <div class="col-md-6 mb-3 form-check" id="3" style="display: none">
+                        <label class="form-label">Pool Area</label>
+                        <input type="number" class="form-control" name="poolArea">
+                    </div>
+
+                    <div class="col-md-6 mb-3 form-check" id="4" style="display: none">
+                        <label class="form-label">Number Of Floors</label>
+                        <input type="number" class="form-control" name="numberOfFloors">
+                    </div>
+
+                    <div class="col-md-6 mb-3 form-check" id="5" style="display: none">
+                        <label class="form-label">Facility Free</label>
+                        <input type="text" class="form-control" name="facilityFree">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </div>
         </div>
@@ -111,21 +114,21 @@
                 document.getElementById("4").style.display = "none";
                 document.getElementById("5").style.display = "none";
                 break;
-            case "Villa":
+            case "1":
                 document.getElementById("1").style.display = "block";
                 document.getElementById("2").style.display = "block";
                 document.getElementById("3").style.display = "block";
                 document.getElementById("4").style.display = "block";
                 document.getElementById("5").style.display = "none";
                 break;
-            case "House":
+            case "2":
                 document.getElementById("1").style.display = "block";
                 document.getElementById("2").style.display = "block";
                 document.getElementById("3").style.display = "none";
                 document.getElementById("4").style.display = "block";
                 document.getElementById("5").style.display = "none";
                 break;
-            case "Room":
+            case "3":
                 document.getElementById("1").style.display = "none";
                 document.getElementById("2").style.display = "none";
                 document.getElementById("3").style.display = "none";

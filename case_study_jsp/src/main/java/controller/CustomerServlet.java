@@ -15,6 +15,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", value = "/CustomerServlet")
 public class CustomerServlet extends HttpServlet {
@@ -165,19 +166,76 @@ public class CustomerServlet extends HttpServlet {
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
-        String customerName = request.getParameter("nameCustomer");
+        String customerName = request.getParameter("name");
         String customerBirth = request.getParameter("birthday");
         int customerGender = Integer.parseInt(request.getParameter("gender"));
         String customerIdCard = request.getParameter("idCard");
         String customerPhone = request.getParameter("phone");
         String customerEmail = request.getParameter("email");
         String customerAddress = request.getParameter("address");
-        Customer customer = new Customer(customerTypeId, customerTypeId, customerName,customerBirth,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress);
-        iCustomerService.addCustomer(customer);
-        listCustomer(request,response);
-    }
+//        List<Customer> customerList = iCustomerService.displayCustomer();
+        Customer customer = new Customer(customerTypeId, customerName, customerBirth, customerGender,
+                customerIdCard, customerPhone, customerEmail, customerAddress);
+        Map<String, String> mapErrors = this.iCustomerService.CheckCustomer(customer);
+        if (mapErrors.size() > 0) {
+            for (Map.Entry<String, String> entry : mapErrors.entrySet()) {
+                request.setAttribute(entry.getKey(), entry.getValue());
+            }
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/customer/create_customer.jsp");
+            try {
+                requestDispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        request.setAttribute("customerList",iCustomerService.DisplayAllCustomer());
+        try {
+            request.getRequestDispatcher("view/customer/list_customer.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
 
+// test
+//        String mess = "";
+//        if (mapErros.isEmpty()) {
+//            mess = "  Successfully";
+//        } else {
+//            mess = "failure";
+//        }
+//        customerList = iCustomerService.DisplayAllCustomer();
+//        List<CustomerType> customerTypeList = iCustomerTypeService.findAllCustomerType();
+//        requestDispatcher = request.getRequestDispatcher("view/customer/list_customer.jsp");
+//        request.setAttribute("mess", mess);
+//        request.setAttribute("customerList", customerList);
+//        request.setAttribute("customerTypeList", customerTypeList);
+//        try {
+//            requestDispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+
+// thêm mới bình thường
+//        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+//        String customerName = request.getParameter("nameCustomer");
+//        String customerBirth = request.getParameter("birthday");
+//        int customerGender = Integer.parseInt(request.getParameter("gender"));
+//        String customerIdCard = request.getParameter("idCard");
+//        String customerPhone = request.getParameter("phone");
+//        String customerEmail = request.getParameter("email");
+//        String customerAddress = request.getParameter("address");
+//        Customer customer = new Customer( customerTypeId, customerName,customerBirth,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress);
+//        iCustomerService.addCustomer(customer);
+//        listCustomer(request,response);
+        }
+
+
+        private void searchCustomer (HttpServletRequest request, HttpServletResponse response){
+
+        }
     }
-}

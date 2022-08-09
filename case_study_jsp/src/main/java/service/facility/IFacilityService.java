@@ -1,6 +1,5 @@
-package repository.facility;
+package service.facility;
 
-import model.customer.Customer;
 import model.facility.Facility;
 import model.facility.FacilityRentType;
 import model.facility.FacilityType;
@@ -8,7 +7,7 @@ import model.facility.FacilityType;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface IFacilityRepository {
+public interface IFacilityService {
     List<Facility> displayAllFacility();
     Facility findById(int id);
     void addFacility(Facility facility);

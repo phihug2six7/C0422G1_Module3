@@ -11,4 +11,5 @@ public interface ICustomerRepository {
     void addCustomer(Customer customer);
     boolean updateCustomer(Customer customer) throws SQLException;
     boolean removeCustomer(int id) throws SQLException;
+    List<Customer> displayCustomer();
 }

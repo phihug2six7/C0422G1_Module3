@@ -24,6 +24,7 @@
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="nameCustomer">
+                        <div style="color: red">${nameCustomerRegex}</div>
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
@@ -42,16 +43,19 @@
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Id Card</label>
                         <input type="text" class="form-control" id="idCard" name="idCard">
+                        <div style="color: red">${idCardRegex}</div>
                     </div>
 
                     <div class="col-md-6 mb-3 form-check">
                         <label class="form-label">Phone</label>
                         <input type="number" class="form-control" id="phone" name="phone">
+                        <div style="color: red">${phoneRegex}</div>
                     </div>
 
                     <div class="col-md-6 mb-3 form-check" >
                         <label class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email">
+                        <div style="color: red">${emailRegex}</div>
                     </div>
 
                     <div class="col-md-6 mb-3 form-check" >
